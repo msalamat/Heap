@@ -1,6 +1,10 @@
 #include <iostream>
+#include "Heap.hpp"
 
 int main() {
-	std::cout << "Hello, Worlllld!" << std::endl;
+
+	Heap c;
+	c.lol();
+
 	return 0;
 }
