@@ -10,12 +10,8 @@
 #include <string>
 
 class Patient {
-	private:
-
-
 	public:
 		std::pair<std::string, int> person;
-
 
 		Patient(std::string name, int severity) : person(name, severity){}
 
@@ -24,6 +20,11 @@ class Patient {
 //			person.second = severity;
 //		}
 
+		/**
+		 * Check if a LHS Patient is less than the RHS Patient
+		 * @param p a Patient
+		 * @return bool
+		 */
 		bool operator<(const Patient& p) {
 			return person.second < p.person.second;
 		}

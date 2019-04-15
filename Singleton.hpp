@@ -10,44 +10,69 @@
 #include "Heap.hpp"
 #include "Patient.hpp"
 
+
 template<typename T>
 class Singleton {
 	private:
 		Singleton() = default;
 	public:
 		Heap<T> entities;
-//		vector<T> heap;
 
+		static Singleton* s_;
 
-		static Singleton* something;
+		/**
+		 * Singleton
+		 * @return our Singleton instance
+		 */
 		static Singleton* getInstance() {
-			if (something == nullptr) {
-				something = new Singleton();
+			if (s_ == nullptr) {
+				s_ = new Singleton();
 			}
-			return something;
+			return s_;
 		}
 
-
+		/**
+		 * Add an entry
+		 * @param p T anything
+		 */
 		void addEntry(T p) {
 			entities.push(p);
 		}
 
+		/**
+		 * Get the most important entity
+		 * @return T anything
+		 */
 		T getMostImportantEntity() {
 			return entities.pop();
 		}
 
+		/**
+		 * Get the number of stuff in your list
+		 * @return the number of items
+		 */
 		int numberOfThings() {
 			return entities.size();
 		}
 
+		/**
+		 * Check whether or not there are things in your list
+		 * @return bool
+		 */
 		bool meHasStuff() {
 			return entities.is_empty();
 		}
 
+		/**
+		 * Clear the list. Free the list! Empty the list!!
+		 */
 		void kickOutEveryone() {
 			entities.clear();
 		}
 
+		/**
+		 * Display the contents of your list
+		 */
 		void print() {
 			cout << entities;
 		}
@@ -58,5 +83,5 @@ class Singleton {
 
 };
 template<typename T>
-Singleton<T>* Singleton<T>::something = nullptr;
+Singleton<T>* Singleton<T>::s_ = nullptr;
 #endif //HEAP_SINGLETON_HPP

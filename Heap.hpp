@@ -15,13 +15,16 @@ template <typename T>
 class Heap {
 
 	private:
+		/**
+		 * Adjust the container so that it is really a heap
+		 */
 		void heapify() {
 			make_heap(container.begin(), container.end());
 		}
 
 	public:
 		vector<T> container;
-		Heap() = default;
+		Heap(vector<T> container = vector<T>()) : container(container){};
 
 		/**
 		 * Accepts an element and pushes it to the heap
@@ -44,18 +47,34 @@ class Heap {
 			return largest;
 		}
 
+		/**
+		 * Get the size of the heap
+		 */
 		int size() {
 			return static_cast<int>(container.size());
 		}
 
+		/**
+		 * Check whether the stack is empty or not
+		 * @return
+		 */
 		bool is_empty() {
 			return container.size() != 0;
 		}
 
+		/**
+		 * Get rid of everything in the stack
+		 */
 		void clear() {
 			container.clear();
 		}
 
+		/**
+		 * Modify the ostream so it prints what we need it to print
+		 * @param os ostream
+		 * @param h heap
+		 * @return modified ostream
+		 */
 		friend ostream& operator<<(ostream& os, const Heap& h) {
 
 			for (auto it = h.container.begin(); it != h.container.end(); ++it) {
@@ -65,7 +84,6 @@ class Heap {
 			os << endl;
 			return os;
 		}
-
 };
 
 
