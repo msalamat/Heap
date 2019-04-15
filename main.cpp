@@ -10,10 +10,10 @@ int main() {
 
 	patients.emplace_back("Aoi Sora", 45);
 	patients.emplace_back("Julia", 55);
-	patients.emplace_back("Johanna Bazingas", 20);
-	patients.emplace_back("Lil Roro", 30);
-	patients.emplace_back("Futile Dinklebutt", 90);
-	patients.emplace_back("Masterado Indigogo", 40);
+	patients.emplace_back("Maki Otoha", 20);
+	patients.emplace_back("Hina Wakaba", 30);
+	patients.emplace_back("Chihiro Aoi", 90);
+	patients.emplace_back("Maria Ozawa", 40);
 
 	for (auto it = patients.begin(); it != patients.end(); ++it) {
 		s->addEntry(*it);
